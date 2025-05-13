@@ -1,0 +1,571 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Configurator Fereastră</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+    }
+
+    .layout {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .configurator {
+      flex: 3;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .sidebar {
+      flex: 1;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h3 {
+      margin-bottom: 10px;
+      font-size: 1.2em;
+    }
+
+    .options-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .option-card {
+      flex: 0 0 150px;
+      max-width: 150px;
+      background: #ffffff;
+      padding: 15px;
+      border-radius: 6px;
+      text-align: center;
+      cursor: pointer;
+      min-width: 120px;
+      transition: background 0.3s;
+    }
+
+    .option-card.selected {
+    border: 2px solid #007bff;
+    background: #dbeafe;
+    }
+
+    .option-card img {
+    width: 100%;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    }
+
+    .option-card:hover {
+      background: #d0d0d0;
+    }
+
+    #preview-box {
+      border: 1px solid #adadad;
+      padding: 10px;
+      background: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    #preview-img {
+      width: 100%;
+      max-height: 250px;
+      object-fit: contain;
+    }
+
+    ul#rezumat {
+      padding-left: 20px;
+    }
+
+    ul#rezumat li {
+      margin-bottom: 5px;
+    }
+
+    @media (max-width: 768px) {
+      .layout {
+        flex-direction: column;
+      }
+
+      .configurator,
+      .sidebar {
+        width: 100%;
+      }
+
+      .option-card {
+        flex: 0 0 150px;
+        max-width: 150px;
+      }
+    }
+    .info-icon {
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 5px;
+  display: inline-block;
+  position: relative;
+}
+
+.tooltip {
+  visibility: hidden;
+  width: 250px;
+  background-color: #f0f0f0;
+  color: #000;
+  text-align: left;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  top: 25px;
+  left: 100%;
+  transform: translateX(-50%);
+  box-shadow: 1px 4px 8px rgba(0,0,0,0.1);
+}
+
+.info-icon:hover .tooltip {
+  visibility: visible;
+}
+
+
+.dimensions {
+  display: grid;
+  gap: 10px;
+  max-width: 300px;
+}
+
+.dimension-field label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.dimension-field input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.dimension-field input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 3px #007bff66;
+  outline: none;
+}
+
+ #rezumat {
+  padding-left: 20px;
+}
+
+  #rezumat li {
+    margin-bottom: 5px;
+  }
+
+  </style>
+</head>
+<body>
+
+<div class="layout">
+  <!-- Configurator -->
+  <div class="configurator">
+    <div class="section">
+      <h3>1. Wählen Sie den Hersteller</h3>
+      <div class="options-grid" id="hersteller">
+        <div class="option-card" data-value="Salamander 76 AD">
+          <img src="img/sal76ad.jpg" alt="Salamander 76AD">
+          Salamander 76 AD
+          <div class="info-icon">ℹ️
+            <div class ="tooltip">
+
+              <p>GreenEvolution flex 76 AD</p>
+
+              <li>5-Kammer Profil</li>
+              <li>2 EDPM Dichtungsebenen</li>
+              <li>Bautiefe: 76 mm</li>
+              <li>bis zu Uw = 0,5 W/(m²K) bei Glas mit warmer Kante</li>
+              <li>Verglasung: bis 48 mm</li>
+              <li>Schallschutz: Schallreduzierung um bis 47 dB</li>
+              <li>Einbruchhemmung: bis RC 3</li>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="option-card" data-value="Salamander 76 MD"> 
+          <img src="img/sal76md.jpg" alt="Salamander 76MD">
+          Salamander 76 MD
+          <div class="info-icon">ℹ️
+            <div class ="tooltip">
+
+              <p>GreenEvolution flex 76 MD</p>
+
+              <li>5-Kammer Profil</li>
+              <li>2 EDPM Dichtungsebenen</li>
+              <li>Bautiefe: 76 mm</li>
+              <li>bis zu Uw = 0,5 W/(m²K) bei Glas mit warmer Kante</li>
+              <li>Verglasung: bis 48 mm</li>
+              <li>Schallschutz: Schallreduzierung um bis 47 dB</li>
+              <li>Einbruchhemmung: bis RC 3</li>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="option-card" data-value="Aluplast 70">
+          <img src="img/aluplast70.jpg" alt="Aluplast 70">
+          Aluplast 70
+          <div class="info-icon">ℹ️
+            <div class ="tooltip">
+
+              <p>Aluplast 70</p>
+
+              <li>5-Kammer Profil</li>
+              <li>2 EDPM Dichtungsebenen</li>
+              <li>Bautiefe: 76 mm</li>
+              <li>bis zu Uw = 0,5 W/(m²K) bei Glas mit warmer Kante</li>
+              <li>Verglasung: bis 48 mm</li>
+              <li>Schallschutz: Schallreduzierung um bis 47 dB</li>
+              <li>Einbruchhemmung: bis RC 3</li>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="option-card" data-value="Kömmerling 88 MD">
+          <img src="img/kommerling88.jpg" alt="Koemmerling 88">
+          Kömmerling 88 MD
+          <div class="info-icon">ℹ️
+            <div class ="tooltip">
+
+              <p>Kömmerling 88 MD</p>
+
+              <li>5-Kammer Profil</li>
+              <li>2 EDPM Dichtungsebenen</li>
+              <li>Bautiefe: 76 mm</li>
+              <li>bis zu Uw = 0,5 W/(m²K) bei Glas mit warmer Kante</li>
+              <li>Verglasung: bis 48 mm</li>
+              <li>Schallschutz: Schallreduzierung um bis 47 dB</li>
+              <li>Einbruchhemmung: bis RC 3</li>
+            </div>
+          </div>
+        </div>
+       
+
+
+
+
+
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>2. Fensterart wählen</h3>
+      <div class="options-grid" id="fensterart">
+        <div class="option-card" data-value="1 Flügel"  data-img="ss.png">
+         <img src="img/ss.png" alt="1-Fluegel">
+        1 Flügel 
+        </div>
+
+        <div class="option-card" data-value="1 Flügel mit Oberlicht" data-img="ss_oberlicht.png">
+          <img src="img/ss_oberlicht.png" alt="Oberlicht">
+          1 Flügel mit Oberlicht
+        </div>
+
+        <div class="option-card" data-value="1 Flügel mit Unterlicht" data-img="ss_unterlicht.png">
+          <img src="img/ss_unterlicht.png" alt="Unterlicht">
+          1 Flügel mit Unterlicht
+        </div>
+
+        <div class="option-card" data-value="2 Flügel" data-img="ss2.png">
+          <img src="img/ss2.png" alt="2 Fluegel">
+        2-Flügel
+        </div>
+
+        <div class="option-card" data-value="3 Flügel" data-img="ss3.png">
+          <img src="img/ss3.png" alt="3 Flügel">
+        3 Flügel
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="oeffnung-1fluegel" style="display: none;">
+      <h3>3. Öffnung Fenster 1 Flügel</h3>
+      <div class="options-grid" id="fenstertyp">
+        <div class="option-card">
+          <img src="img/ss.png" alt="Einzeln">
+          Festverglasung
+        </div>
+
+        <div class="option-card" data-value="Links" data-img="ss_links.png">
+          <img src="img/ss_links.png" alt="links">
+          Links
+        </div>
+
+        <div class="option-card" data-value="Rechts" data-img="ss_rechts.png">
+          <img src="img/ss_rechts.png" alt="rechts">
+          rechts
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="oeffnung-1fluegel-oberlicht" style="display: none;">
+       <h3>3. Öffnung Fenster 1 Flügel mit Oberlicht</h3>
+        <div class="options-grid" id="fenstertyp2">
+        <div class="option-card" data-img="f_o.png">
+          <img src="img/f_o.png" alt="fest">
+          Festverglasung
+        </div>
+        <div class="option-card" data-img="f_o_l.png">
+          <img src="img/f_o_l.png" alt="links">
+          Links
+        </div>
+        <div class="option-card" data-img="f_o_r.png">
+          <img src="img/f_o_r.png" alt="rechts">
+          Rechts
+        </div>
+
+        <div class="option-card"  data-img="f_o_links_kipp.png">
+          <img src="img/f_o_links_kipp.png" alt="links-kipp">
+          Links - Kipp
+        </div>
+
+        <div class="option-card" data-img="f_o_rechts_kipp.png">
+          <img src="img/f_o_rechts_kipp.png" alt="rechts-kipp">
+          Rechts - Kipp
+        </div>
+
+
+      </div>
+    </div>
+
+
+        <div class="section">
+      <h3>4. Außenfarbe </h3>
+      <div class="options-grid" id="aussenfarbe">
+        <div class="option-card">
+          <img src="img/a-weiss.jpg" alt="Weiss" style="transform: rotate(90deg);">
+        Weiß
+        </div>
+        <div class="option-card" data-value="Anthrazitgrau">
+          <img src="img/fs1_02.jpg" alt="Anthrazit" style="transform: rotate(90deg);">
+        Anthrazitgrau
+        </div>
+
+        <div class="option-card">
+          <img src="img/fs1_10.jpg" alt="Nussbaum" style="transform: rotate(90deg);">
+        Nussbaum
+        </div>
+
+        <div class="option-card" data-value="mahagoni">
+        <img src="img/fs1_08.jpg" alt="Mahagoni" style="transform: rotate(90deg);">
+        Mahagoni
+      </div>
+
+
+      </div>
+    </div>
+
+
+
+        <div class="section">
+      <h3>5. Innenfarbe</h3>
+      <div class="options-grid" id="innenfarbe">
+        <div class="option-card" data-value="Weiss">
+        <img src="img/a-weiss.jpg" alt="Weiss" style="transform: rotate(90deg);">
+        Weiß
+      </div>
+
+      </div>
+    </div>
+
+
+     <div class="section">
+      <h3>6. Verglasung </h3>
+      <div class="options-grid" id="verglasung">
+        <div class="option-card" data-value="2-Fach-Verglasung">
+          <img src="img/verglasung-2-fach-warm.jpg">
+        2-Fach-Verglasung mit warmen Kanten
+        </div>
+        <div class="option-card" data-value="3-Fach-Verglasung">
+          <img src="img/verglasung-3-fach-warm.jpg">
+        3-Fach-Verglasung mit warmen Kanten
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="section">
+  <h3>7. Eingabe der genauen Maße</h3>
+  <div class="dimensions" id="masse">
+    <div class="dimension-field">
+      <label for="breite">Breite (mm):</label>
+      <input type="number" id="breite" name="breite" value="1000" min="300" max="3000" placeholder="z. B. 1000">
+    </div>
+
+    <div class="dimension-field">
+      <label for="hoehe">Höhe (mm):</label>
+      <input type="number" id="hoehe" name="hoehe" value="1200" min="300" max="3000" placeholder="z. B. 1200">
+    </div>
+  </div>
+</div>
+
+
+    <div class="section">
+      <h3>8. Fensterbankanschluss </h3>
+      <div class="options-grid" id="aussenfarbe">
+        <div class="option-card">
+          <img src="img/fba-leiste.jpg" alt="Solbanc" style="width: 100px; height: auto;">
+          <div style="text-align: left;">
+        <p style="margin-bottom: 10px;">Möchten Sie einen Fensterbankanschluss mit 30mm hinzufügen?</p>
+        <label>
+          <input type="radio" name="solbanc" value="Ja + 30mm"> Ja
+        </label><br>
+        <label>
+          <input type="radio" name="solbanc" value="Nein" checked> Nein
+        </label>
+      </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <!-- Sidebar: Previzualizare + Rezumat -->
+  <div class="sidebar">
+    <h2>Fenster Konfiguration</h2>
+    <div id="preview-box">
+      <img id="preview-img" src="img/ss.png" alt="Fensteransicht" />
+    </div>
+
+    <h3>Zusammenfassung: </h3>
+    <ul id="rezumat">
+      <li>Hersteller: –</li>
+      <li>Fensterart: –</li>
+      <li>Fensteröffung: –</li>
+      <li>Außenfarbe: –</li>
+      <li>Innenfarbe: –</li>
+      <li>Verglasung: –</li>
+      <li>Maße BxH: –</li>
+      <li>Fensterbankanschluss: –</li>
+
+    </ul>
+  </div>
+</div>
+
+<script>
+
+  function getSolbancValue() {
+    const selected = document.querySelector('input[name="solbanc"]:checked');
+    return selected ? selected.value : '-';
+  }
+
+  function updateRezumat() {
+    const hersteller = document.querySelector('#hersteller .selected')?.dataset.value || '–';
+    const fensterart = document.querySelector('#fensterart .selected')?.dataset.value || '–';
+    const fenstertyp = document.querySelector('#fenstertyp .selected')?.dataset.value || '–';
+    const aussenfarbe = document.querySelector('#aussenfarbe .selected')?.dataset.value || '–';
+    const innenfarbe = document.querySelector('#innenfarbe .selected')?.dataset.value || '–';
+    const verglasung = document.querySelector('#verglasung .selected')?.dataset.value || '–';
+    const breite = document.getElementById("breite")?.value || '–';
+    const hoehe = document.getElementById("hoehe")?.value || '–';
+    const fensterbankanschluss = getSolbancValue();
+
+    document.getElementById("rezumat").innerHTML = `
+      <li>Hersteller: ${hersteller}</li>
+      <li>Fensterart: ${fensterart}</li>
+      <li>Fensteröffnung: ${fenstertyp}</li>
+      <li>Außenfarbe: ${aussenfarbe}</li>
+      <li>Innenfarbe: ${innenfarbe}</li>
+      <li>Verglasung: ${verglasung}</li>
+      <li>Maße BxH: ${breite} mm x ${hoehe} mm</li>
+      <li>Fensterbankanschluss: ${fensterbankanschluss}</li>
+    `;
+  }
+
+
+function setupSelection(groupId, onSelect) {
+    const cards = document.querySelectorAll(`#${groupId} .option-card`);
+    cards.forEach(card => {
+      card.addEventListener("click", () => {
+        cards.forEach(c => c.classList.remove("selected"));
+        card.classList.add("selected");
+
+        const valoare = card.dataset.value;
+        const imagine = card.dataset.img;
+
+        if (imagine) {
+        document.getElementById("preview-img").src = `img/${imagine}`;
+      }
+
+      if (onSelect) onSelect(valoare);
+      updateRezumat();
+    });
+  });
+  }
+
+    function setupListeners() {
+    setupSelection("hersteller");
+    setupSelection("oeffnung-1fluegel");
+    setupSelection("fenstertyp2");
+    setupSelection("aussenfarbe");
+    setupSelection("innenfarbe");
+    setupSelection("verglasung");
+
+    setupSelection("fensterart", (valoare) => {
+      const sectiune1 = document.getElementById("oeffnung-1fluegel");
+      const sectiune2 = document.getElementById("oeffnung-1fluegel-oberlicht");
+
+      sectiune1.style.display = "none";
+      sectiune2.style.display = "none";
+
+      // afișează secțiunea potrivită
+      if (valoare == "1 Flügel") {
+        sectiune1.style.display = "block";
+      } else if (valoare == "1 Flügel mit Oberlicht") {
+        sectiune2.style.display = "block";
+      }
+
+      document.getElementById("latime").addEventListener("input", updateRezumat);
+    document.getElementById("inaltime").addEventListener("input", updateRezumat);
+
+    document.querySelectorAll('input[name="solbanc"]').forEach(input => {
+      input.addEventListener("change", updateRezumat);
+    });
+
+    updateRezumat();
+
+    });
+  }
+    window.addEventListener("DOMContentLoaded", setupListeners);
+  
+</script>
+
+</body>
+</html>
