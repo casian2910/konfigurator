@@ -13,7 +13,9 @@ export default function handler(req, res) {
     hoeheOberlicht = 0,
     verglasung,
     glastyp,
-    fenstertyp // "Festverglasung", "Links", "Rechts" etc.
+    fenstertyp,
+    aussenfarbe,
+    innenfarbe
   } = req.body;
 
   let pret = 0;
@@ -49,6 +51,15 @@ export default function handler(req, res) {
     const tarifTripluGeam = 35;
     pret += suprafataTotala * tarifTripluGeam;
   }
+
+  const weissAussen = aussenfarbe?.trim().toLowerCase() === "weiß";
+  const weissInnen = innenfarbe?.trim().toLowerCase() === "weiß";
+
+if (!weissAussen && !weissInnen) {
+  pret += suprafataTotala * 30; // ambele colorate
+} else if (!weissAussen || !weissInnen) {
+  pret += suprafataTotala * 15; // doar una colorată
+}
 
   // 6. Tip sticlă (satin pe m²)
   if (glastyp === "satin") {
