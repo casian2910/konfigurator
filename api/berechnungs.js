@@ -52,8 +52,11 @@ export default function handler(req, res) {
     pret += suprafataTotala * tarifTripluGeam;
   }
 
-  const weissAussen = aussenfarbe?.trim().toLowerCase() === "weiß";
-  const weissInnen = innenfarbe?.trim().toLowerCase() === "weiß";
+const normalizedAussen = aussenfarbe?.trim().toLowerCase();
+const normalizedInnen = innenfarbe?.trim().toLowerCase();
+
+const weissAussen = normalizedAussen === "weiß" || normalizedAussen === "weiss";
+const weissInnen = normalizedInnen === "weiß" || normalizedInnen === "weiss";
 
 if (!weissAussen && !weissInnen) {
   pret += suprafataTotala * 30; // ambele colorate
