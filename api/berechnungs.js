@@ -52,16 +52,16 @@ export default function handler(req, res) {
     pret += suprafataTotala * tarifTripluGeam;
   }
 
-const normalizedAussen = aussenfarbe?.trim().toLowerCase();
-const normalizedInnen = innenfarbe?.trim().toLowerCase();
+const normalizedAussen = aussenfarbe?.trim().toLowerCase() || "weiß";
+const normalizedInnen = innenfarbe?.trim().toLowerCase() || "weiß";
 
 const weissAussen = normalizedAussen === "weiß" || normalizedAussen === "weiss";
 const weissInnen = normalizedInnen === "weiß" || normalizedInnen === "weiss";
 
 if (!weissAussen && !weissInnen) {
-  pret += suprafataTotala * 30; // ambele colorate
+  pret += suprafataTotala * 30;
 } else if (!weissAussen || !weissInnen) {
-  pret += suprafataTotala * 15; // doar una colorată
+  pret += suprafataTotala * 15;
 }
 
   // 6. Tip sticlă (satin pe m²)
@@ -76,7 +76,3 @@ if (!weissAussen && !weissInnen) {
   return res.status(200).json({ pret });
 }
 
-console.log("🔍 Primit in backend:", {
-  aussenfarbe,
-  innenfarbe
-});
