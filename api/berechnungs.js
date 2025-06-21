@@ -52,12 +52,20 @@ export default function handler(req, res) {
     pret += suprafataTotala * tarifTripluGeam;
   }
 
-const normalizedAussen = aussenfarbe?.trim().toLowerCase() || "weiß";
-const normalizedInnen = innenfarbe?.trim().toLowerCase() || "weiß";
+// Normalizare și fallback sigur
+const normalizedAussen = typeof aussenfarbe === "string"
+  ? aussenfarbe.trim().toLowerCase()
+  : "weiß";
 
+const normalizedInnen = typeof innenfarbe === "string"
+  ? innenfarbe.trim().toLowerCase()
+  : "weiß";
+
+// Verificăm dacă sunt albe sau colorate
 const weissAussen = normalizedAussen === "weiß" || normalizedAussen === "weiss";
 const weissInnen = normalizedInnen === "weiß" || normalizedInnen === "weiss";
 
+// Calculăm cost în funcție de culoare
 if (!weissAussen && !weissInnen) {
   pret += suprafataTotala * 30;
 } else if (!weissAussen || !weissInnen) {
