@@ -28,8 +28,8 @@ export default function handler(req, res) {
   pret += pretHersteller[hersteller] || 0;
 
   // 2. Calcul suprafață totală
-  const suprafataPrincipala = (breite / 100) * (hoehe / 100);
-  const suprafataOberlicht = (breite / 100) * (hoeheOberlicht / 100);
+  const suprafataPrincipala = (breite / 1000) * (hoehe / 1000);
+  const suprafataOberlicht = (breite / 1000) * (hoeheOberlicht / 1000);
   const suprafataTotala = suprafataPrincipala + suprafataOberlicht;
 
   // 3. Preț pe m² bază
