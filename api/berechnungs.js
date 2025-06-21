@@ -75,3 +75,8 @@ if (!weissAussen && !weissInnen) {
 
   return res.status(200).json({ pret });
 }
+
+console.log("🔍 Primit in backend:", {
+  aussenfarbe,
+  innenfarbe
+});
