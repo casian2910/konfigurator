@@ -18,6 +18,24 @@ export default function handler(req, res) {
     innenfarbe
   } = req.body;
 
+  // Normalizează și mapează hersteller
+  const herstellerInput = (herstellerRaw || "").toLowerCase().trim();
+
+  const herstellerMap = {
+    "aluplast 70": "Aluplast 70",
+    "salamander 76 ad": "Salamander 76 AD",
+    "salamander 76 md": "Salamander 76 MD",
+    "kömmerling 88 md": "Kömmerling 88 MD",
+    "koemmerling 88 md": "Kömmerling 88 MD"
+  };
+
+  const hersteller = herstellerMap[herstellerInput];
+
+  // Validare hersteller
+  if (!hersteller) {
+    return res.status(400).json({ message: "Hersteller invalid sau lipsă." });
+  }
+
   let pret = 0;
 
   // 1. Preț de bază pentru producător
