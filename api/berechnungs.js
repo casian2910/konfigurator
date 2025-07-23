@@ -35,8 +35,13 @@ export default function handler(req, res) {
   const suprafataTotala = suprafataPrincipala + suprafataOberlicht;
 
   // 3. Preț pe m² bază
-  const tarifBazaPeMp = 125.6;
-  pret += suprafataTotala * tarifBazaPeMp;
+  const tarifPeMpPerHersteller = {
+  "Salamander 76 AD": 125.6,
+  "Salamander 76 MD": 138.0,
+  "Aluplast 70": 112.5,
+  "Kömmerling 88 MD": 149.0
+};
+pret += suprafataTotala * (tarifPeMpPerHersteller[hersteller] || 125.6);
 
   // 4. Tip fereastră (pe m²)
   const esteFereastraFixa = fenstertyp === "Festverglasung";
