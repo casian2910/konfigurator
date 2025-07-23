@@ -22,8 +22,8 @@ export default function handler(req, res) {
 
   // 1. Preț de bază pentru producător
   const pretHersteller = {
-    "Salamander 76 AD": 65,
-    "Salamander 76 MD": 78,
+    "Koemmerling 76 AD": 65,
+    "Koemmerling 76 MD": 78,
     "Aluplast 70": 55,
     "Kömmerling 88 MD": 88
   };
