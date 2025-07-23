@@ -22,8 +22,8 @@ export default function handler(req, res) {
 
   // 1. Preț de bază pentru producător
   const pretHersteller = {
-    "Salamander 76 AD": 65,
-    "Salamander 76 MD": 78,
+    "Kömmerling 76 AD": 65,
+    "Kömmerling 76 MD": 78,
     "Aluplast 70": 55,
     "Kömmerling 88 MD": 88
   };
@@ -36,8 +36,8 @@ export default function handler(req, res) {
 
   // 3. Preț pe m² bază
   const tarifPeMpPerHersteller = {
-  "Salamander 76 AD": 125.6,
-  "Salamander 76 MD": 138.0,
+  "Kömmerling 76 AD": 125.6,
+  "Kömmerling 76 MD": 138.0,
   "Aluplast 70": 112.5,
   "Kömmerling 88 MD": 149.0
 };
