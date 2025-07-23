@@ -22,10 +22,10 @@ export default function handler(req, res) {
 
   // 1. Preț de bază pentru producător
   const pretHersteller = {
-    "Salamander 76 AD": 50,
-    "Salamander 76 MD": 55,
-    "Aluplast 70": 45,
-    "Kömmerling 88 MD": 65
+    "Salamander 76 AD": 65,
+    "Salamander 76 MD": 78,
+    "Aluplast 70": 55,
+    "Kömmerling 88 MD": 88
   };
   pret += pretHersteller[hersteller] || 0;
 
