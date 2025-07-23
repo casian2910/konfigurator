@@ -18,41 +18,27 @@ export default function handler(req, res) {
     innenfarbe
   } = req.body;
 
-  // Verificare existență producător
-  const herstellerKey = (hersteller || "").trim();
-  const pretHersteller = {
-    "Aluplast 70": 55,
-    "Salamander 76 AD": 65,
-    "Salamander 76 MD": 78,
-    "Kömmerling 88 MD": 88
-  };
-
-  const tarifPeMpPerHersteller = {
-    "Aluplast 70": 115,
-    "Salamander 76 AD": 125,
-    "Salamander 76 MD": 138,
-    "Kömmerling 88 MD": 150
-  };
-
-  if (!pretHersteller[herstellerKey] || !tarifPeMpPerHersteller[herstellerKey]) {
-    return res.status(400).json({ message: "Hersteller invalid sau lipsă." });
-  }
-
   let pret = 0;
 
   // 1. Preț de bază pentru producător
-  pret += pretHersteller[herstellerKey];
+  const pretHersteller = {
+    "Salamander 76 AD": 65,
+    "Salamander 76 MD": 78,
+    "Aluplast 70": 55,
+    "Kömmerling 88 MD": 88
+  };
+  pret += pretHersteller[hersteller] || 0;
 
   // 2. Calcul suprafață totală
   const suprafataPrincipala = (breite / 1000) * (hoehe / 1000);
   const suprafataOberlicht = (breite / 1000) * (hoeheOberlicht / 1000);
   const suprafataTotala = suprafataPrincipala + suprafataOberlicht;
 
-  // 3. Tarif specific producător
-  const tarif = tarifPeMpPerHersteller[herstellerKey];
-  pret += suprafataTotala * tarif;
+  // 3. Preț pe m² bază
+  const tarifBazaPeMp = 125.6;
+  pret += suprafataTotala * tarifBazaPeMp;
 
-  // 4. Tip fereastră (Festverglasung = reducere, altfel adaos)
+  // 4. Tip fereastră (pe m²)
   const esteFereastraFixa = fenstertyp === "Festverglasung";
   if (esteFereastraFixa) {
     pret -= suprafataTotala * 10; // reducere €/m²
@@ -60,29 +46,31 @@ export default function handler(req, res) {
     pret += suprafataTotala * 20; // cost deschidere €/m²
   }
 
-  // 5. Tip de geam (3-Fach = extra €/m²)
+  // 5. Verglasung (3-Fach = extra pe m²)
   if (verglasung === "3-Fach-Verglasung") {
-    pret += suprafataTotala * 35;
+    const tarifTripluGeam = 35;
+    pret += suprafataTotala * tarifTripluGeam;
   }
 
-  // 6. Culoare exterior/interior
-  const normAussen = (aussenfarbe || "").toLowerCase();
-  const normInnen = (innenfarbe || "").toLowerCase();
-  const eAlbAussen = normAussen === "weiß" || normAussen === "weiss";
-  const eAlbInnen = normInnen === "weiß" || normInnen === "weiss";
+const normAussen = (aussenfarbe || "").toLowerCase();
+const normInnen = (innenfarbe || "").toLowerCase();
 
-  if (!eAlbAussen && !eAlbInnen) {
-    pret += suprafataTotala * 30;
-  } else if (!eAlbAussen || !eAlbInnen) {
-    pret += suprafataTotala * 15;
+const eAlbAussen = normAussen === "weiß" || normAussen === "weiss";
+const eAlbInnen = normInnen === "weiß" || normInnen === "weiss";
+
+if (!eAlbAussen && !eAlbInnen) {
+  pret += suprafataTotala * 30;
+} else if (!eAlbAussen || !eAlbInnen) {
+  pret += suprafataTotala * 15;
+}
+
+  // 6. Tip sticlă (satin pe m²)
+  if (glastyp === "satin") {
+    const tarifSatin = 25;
+    pret += suprafataTotala * tarifSatin;
   }
 
-  // 7. Tip sticlă (satin = extra €/m²)
-  if ((glastyp || "").toLowerCase() === "satin") {
-    pret += suprafataTotala * 25;
-  }
-
-  // 8. Rotunjire
+  // 7. Rotunjire
   pret = Math.round(pret * 100) / 100;
 
   return res.status(200).json({ pret });
