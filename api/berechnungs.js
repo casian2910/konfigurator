@@ -49,6 +49,7 @@ if (fenstertyp === "Festverglasung") {
   // creștem prețul cu 20 EUR pe mp (exemplu)
   pret += suprafataTotala * 30;
 }
+console.log("fenstertyp2 primit:", fenstertyp2);
 
   // Ajustare preț pentru fenstertyp2 (Oberlicht)
 if (fenstertyp2 === "Festverglasung") {
