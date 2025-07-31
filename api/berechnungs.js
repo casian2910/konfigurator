@@ -44,24 +44,15 @@ export default function handler(req, res) {
   pret += suprafataTotala * tarifBazaPeMp;
 
 // 4. Deschidere principală
-if (fenstertyp === "Festverglasung") {
-  pret -= suprafataTotala * 10; // reducere pt. partea fixă
-} else if (fenstertyp === "Links" || fenstertyp === "Rechts") {
-  pret += suprafataTotala * 20; // cost pt. deschidere principală
+if (fenstertyp1 === "Festverglasung") {
+  pret -= suprafataTotala * 10;
+} else if (fenstertyp1 === "Links" || fenstertyp1 === "Rechts") {
+  pret += suprafataTotala * 20;
 }
 
 // 5. Supliment dacă este "1 Flügel mit Oberlicht"
-if (fensterart === "1 Flügel mit Oberlicht") {
-  pret += suprafataTotala * 15; // cost pt. Oberlicht
-
-  // 6. Cost suplimentar dacă Oberlicht este deschizabil
-  if (
-    fenstertyp2 !== "Festverglasung" &&
-    fenstertyp2 !== undefined &&
-    fenstertyp2.trim() !== ""
-  ) {
-    pret += suprafataTotala * 15; // deschidere la Oberlicht = cost în plus
-  }
+if (fensterart && fensterart.includes("mit Oberlicht")) {
+  pret += suprafataTotala * 15;
 }
 
   // 5. Verglasung (3-Fach = extra pe m²)
