@@ -43,7 +43,7 @@ export default function handler(req, res) {
   const tarifBazaPeMp = 125.6;
   pret += suprafataTotala * tarifBazaPeMp;
 
- // Funcție pentru calcul ajustare preț în funcție de fenstertyp
+  // Funcție pentru ajustare preț în funcție de fenstertyp și suprafață
   function ajustarePretDeschidere(fenstertypValue, suprafata) {
     let ajustare = 0;
     if (!fenstertypValue) return 0;
@@ -61,9 +61,9 @@ export default function handler(req, res) {
     return ajustare;
   }
 
-  // 4. Aplicare ajustări pe deschideri existente
-  pret += ajustarePretDeschidere(fenstertyp, suprafataTotala);
-  pret += ajustarePretDeschidere(fenstertyp2, suprafataTotala);
+  // 4. Aplicăm ajustările separat pentru fiecare deschidere, cu suprafața corectă
+  pret += ajustarePretDeschidere(fenstertyp, suprafataPrincipala);
+  pret += ajustarePretDeschidere(fenstertyp2, suprafataOberlicht); // aici folosim doar Oberlicht
   pret += ajustarePretDeschidere(fenstertyp3, suprafataTotala);
   pret += ajustarePretDeschidere(fenstertyp4, suprafataTotala);
   pret += ajustarePretDeschidere(fenstertyp5, suprafataTotala);
