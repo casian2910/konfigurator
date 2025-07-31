@@ -43,35 +43,12 @@ export default function handler(req, res) {
   const tarifBazaPeMp = 125.6;
   pret += suprafataTotala * tarifBazaPeMp;
 
-  // Funcție pentru ajustare preț în funcție de fenstertyp și suprafață
-  function ajustarePretDeschidere(fenstertypValue, suprafata) {
-    let ajustare = 0;
-    if (!fenstertypValue) return 0;
-
-    if (fenstertypValue === "Festverglasung") {
-      ajustare -= suprafata * 10;
-    } else if (fenstertypValue === "Links" || fenstertypValue === "Rechts") {
-      ajustare += suprafata * 20;
-    } else if (
-      fenstertypValue === "drehkipp Links und Fest" ||
-      fenstertypValue === "drehkipp Rechts und Fest"
-    ) {
-      ajustare += suprafata * 30;
-    }
-    return ajustare;
-  }
-
-  // 4. Aplicăm ajustările separat pentru fiecare deschidere, cu suprafața corectă
-  pret += ajustarePretDeschidere(fenstertyp, suprafataPrincipala);
-  pret += ajustarePretDeschidere(fenstertyp2, suprafataOberlicht); // aici folosim doar Oberlicht
-  pret += ajustarePretDeschidere(fenstertyp3, suprafataTotala);
-  pret += ajustarePretDeschidere(fenstertyp4, suprafataTotala);
-  pret += ajustarePretDeschidere(fenstertyp5, suprafataTotala);
-
-  // 5. Supliment dacă este "1 Flügel mit Oberlicht"
-  if (fensterart && fensterart.includes("mit Oberlicht")) {
-    pret += suprafataTotala * 15;
-  }
+if (fenstertyp === "Festverglasung") {
+  // pretul ramane neschimbat
+} else if (fenstertyp === "Links" || fenstertyp === "Rechts") {
+  // creștem prețul cu 20 EUR pe mp (exemplu)
+  pret += suprafata * 30;
+}
 
   // 5. Verglasung (3-Fach = extra pe m²)
   if (verglasung === "3-Fach-Verglasung") {
