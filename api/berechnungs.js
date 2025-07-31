@@ -58,8 +58,10 @@ if (fenstertyp2 === "Festverglasung") {
 } else if (fenstertyp2 === "Links" || fenstertyp2 === "Rechts") {
   // Supliment mai mare pentru deschidere
   pret += suprafataTotala * 35; // exemplu +30 EUR/m²
+} else if (fenstertyp2 === "Links - Kipp" || fenstertyp2 === "Rechts - Kipp") {
+  pret += suprafataTotala * 55; // exemplu +30 EUR/m²
 }
-
+  
   // 5. Verglasung (3-Fach = extra pe m²)
   if (verglasung === "3-Fach-Verglasung") {
     const tarifTripluGeam = 35;
