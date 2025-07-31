@@ -53,7 +53,7 @@ if (fenstertyp === "Festverglasung") {
   // Ajustare preț pentru fenstertyp2 (Oberlicht)
 if (fenstertyp2 === "Festverglasung") {
   // Supliment mic față de Festverglasung normal
-  pret += suprafataOberlicht * 20;  // exemplu +5 EUR/m²
+  pret += suprafataTotala * 10;  // exemplu +5 EUR/m²
 } else if (fenstertyp2 === "Links" || fenstertyp2 === "Rechts") {
   // Supliment mai mare pentru deschidere
   pret += suprafataTotala * 35; // exemplu +30 EUR/m²
