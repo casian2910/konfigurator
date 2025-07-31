@@ -49,7 +49,7 @@ const deschideri = [fenstertyp, fenstertyp2, fenstertyp3, fenstertyp4, fensterty
 deschideri.forEach(function (opt) {
   if (opt === "Festverglasung") {
     pret -= suprafataTotala * 10; // reducere pentru componente fixe
-  } else if (opt === "links" || opt === "rechts") {
+  } else if (opt === "Links" || opt === "Rechts") {
     pret += suprafataTotala * 20; // cost pentru componente mobile
   }
 });
