@@ -38,13 +38,20 @@ export default function handler(req, res) {
   const tarifBazaPeMp = 125.6;
   pret += suprafataTotala * tarifBazaPeMp;
 
-  // 4. Tip fereastră (pe m²)
-  const esteFereastraFixa = fenstertyp === "Festverglasung";
-  if (esteFereastraFixa) {
-    pret -= suprafataTotala * 10; // reducere €/m²
-  } else {
-    pret += suprafataTotala * 20; // cost deschidere €/m²
+// 4. Tip fereastră (pe m²)
+if (fenstertyp === "Festverglasung") {
+  pret -= suprafataTotala * 10; // reducere €/m² pentru fixă
+} else {
+  pret += suprafataTotala * 20; // cost deschidere €/m²
+
+  // supliment pentru Oberlicht sau Unterlicht
+  if (
+    fenstertyp.includes("mit Oberlicht") ||
+    fenstertyp.includes("mit Unterlicht")
+  ) {
+    pret += suprafataTotala * 15; // cost suplimentar pentru elementul extra
   }
+}
 
   // 5. Verglasung (3-Fach = extra pe m²)
   if (verglasung === "3-Fach-Verglasung") {
