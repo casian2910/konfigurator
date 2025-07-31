@@ -72,6 +72,17 @@ if (fenstertyp4 === "Festverglasung") {
 } else if (fenstertyp4 === "drehkipp Links und Fest" || fenstertyp4 === "drehkipp Rechts und Fest") {
   pret += suprafataTotala * 45; // exemplu +30 EUR/m²
 } 
+
+  // 2 Flügel mit Unterlicht
+if (fenstertyp5 === "Festverglasung") {
+  pret += suprafataTotala * 60;  // exemplu +5 EUR/m²
+} else if (fenstertyp5 === "drehkipp Links und Fest Unterlicht" || fenstertyp5 === "drehkipp Rechts und Fest Unterlicht") {
+  pret += suprafataTotala * 85; // exemplu +30 EUR/m²
+} else if (fenstertyp5 === "Drehkipp Links und drehkipp Rechst mit Pfosten") {
+  pret += suprafataTotala * 105; // exemplu +30 EUR/m²
+} else if(fenstertyp5 === "Drehkipp Links und dreh Rechst mit Stulp(Ohne Pfosten") {
+  pret += suprafataTotala * 98; // exemplu +30 EUR/m²
+}
   
   // 5. Verglasung (3-Fach = extra pe m²)
   if (verglasung === "3-Fach-Verglasung") {
