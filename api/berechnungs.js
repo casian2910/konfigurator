@@ -50,6 +50,15 @@ if (fenstertyp === "Festverglasung") {
   pret += suprafataTotala * 30;
 }
 
+  // Ajustare preț pentru fenstertyp2 (Oberlicht)
+if (fenstertyp2 === "Festverglasung") {
+  // Supliment mic față de Festverglasung normal
+  pret += suprafataOberlicht * 5;  // exemplu +5 EUR/m²
+} else if (fenstertyp2 === "Links" || fenstertyp2 === "Rechts") {
+  // Supliment mai mare pentru deschidere
+  pret += suprafataOberlicht * 30; // exemplu +30 EUR/m²
+}
+
   // 5. Verglasung (3-Fach = extra pe m²)
   if (verglasung === "3-Fach-Verglasung") {
     const tarifTripluGeam = 35;
