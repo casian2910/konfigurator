@@ -44,9 +44,9 @@ export default function handler(req, res) {
   pret += suprafataTotala * tarifBazaPeMp;
 
 // 4. Deschidere principală
-if (fenstertyp1 === "Festverglasung") {
+if (fenstertyp === "Festverglasung") {
   pret -= suprafataTotala * 10;
-} else if (fenstertyp1 === "Links" || fenstertyp1 === "Rechts") {
+} else if (fenstertyp === "Links" || fenstertyp === "Rechts") {
   pret += suprafataTotala * 20;
 }
 
