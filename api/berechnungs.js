@@ -47,7 +47,7 @@ if (fenstertyp === "Festverglasung") {
   // pretul ramane neschimbat
 } else if (fenstertyp === "Links" || fenstertyp === "Rechts") {
   // creștem prețul cu 20 EUR pe mp (exemplu)
-  pret += suprafata * 30;
+  pret += suprafataTotala * 30;
 }
 
   // 5. Verglasung (3-Fach = extra pe m²)
