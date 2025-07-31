@@ -43,30 +43,35 @@ export default function handler(req, res) {
   const tarifBazaPeMp = 125.6;
   pret += suprafataTotala * tarifBazaPeMp;
 
-// 4. Deschidere principală
-if (fenstertyp === "Festverglasung") {
-  pret -= suprafataTotala * 10;
-} else if (fenstertyp === "Links" || fenstertyp === "Rechts") {
-  pret += suprafataTotala * 20;
-}
-// 4.1. Deschidere pentru 2 Flügel (fenstertyp4)
-if (fenstertyp4) {
-  console.log("VALOARE fenstertyp4:", fenstertyp4);
+ // Funcție pentru calcul ajustare preț în funcție de fenstertyp
+  function ajustarePretDeschidere(fenstertypValue, suprafata) {
+    let ajustare = 0;
+    if (!fenstertypValue) return 0;
 
-  if (fenstertyp4 === "Festverglasung") {
-    pret -= suprafataTotala * 10;
-  } else if (
-    fenstertyp4 === "drehkipp Links und Fest" ||
-    fenstertyp4 === "drehkipp Rechts und Fest"
-  ) {
-    pret += suprafataTotala * 30;
+    if (fenstertypValue === "Festverglasung") {
+      ajustare -= suprafata * 10;
+    } else if (fenstertypValue === "Links" || fenstertypValue === "Rechts") {
+      ajustare += suprafata * 20;
+    } else if (
+      fenstertypValue === "drehkipp Links und Fest" ||
+      fenstertypValue === "drehkipp Rechts und Fest"
+    ) {
+      ajustare += suprafata * 30;
+    }
+    return ajustare;
   }
-}
 
-// 5. Supliment dacă este "1 Flügel mit Oberlicht"
-if (fensterart && fensterart.includes("mit Oberlicht")) {
-  pret += suprafataTotala * 15;
-}
+  // 4. Aplicare ajustări pe deschideri existente
+  pret += ajustarePretDeschidere(fenstertyp, suprafataTotala);
+  pret += ajustarePretDeschidere(fenstertyp2, suprafataTotala);
+  pret += ajustarePretDeschidere(fenstertyp3, suprafataTotala);
+  pret += ajustarePretDeschidere(fenstertyp4, suprafataTotala);
+  pret += ajustarePretDeschidere(fenstertyp5, suprafataTotala);
+
+  // 5. Supliment dacă este "1 Flügel mit Oberlicht"
+  if (fensterart && fensterart.includes("mit Oberlicht")) {
+    pret += suprafataTotala * 15;
+  }
 
   // 5. Verglasung (3-Fach = extra pe m²)
   if (verglasung === "3-Fach-Verglasung") {
