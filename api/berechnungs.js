@@ -49,9 +49,9 @@ if (fenstertyp === "Festverglasung") {
 } else if (fenstertyp === "Links" || fenstertyp === "Rechts") {
   pret += suprafataTotala * 20;
 }
-if (fenstertyp2 === "Festverglasung") {
+if (fenstertyp4 === "Festverglasung") {
   pret -= suprafataTotala * 10;
-} else if (fenstertyp2 === "drehkipp Links und Fest" || fenstertyp2 === "drehkipp Rechts und Fest") {
+} else if (fenstertyp4 === "drehkipp Links und Fest" || fenstertyp4 === "drehkipp Rechts und Fest") {
   pret += suprafataTotala * 30;
 }
 
