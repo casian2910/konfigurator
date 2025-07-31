@@ -46,7 +46,7 @@ export default function handler(req, res) {
 // 4. Deschidere principală
 if (fenstertyp === "Festverglasung") {
   pret -= suprafataTotala * 10; // reducere pt. partea fixă
-} else if (fenstertyp1 === "Links" || fenstertyp1 === "Rechts") {
+} else if (fenstertyp === "Links" || fenstertyp === "Rechts") {
   pret += suprafataTotala * 20; // cost pt. deschidere principală
 }
 
