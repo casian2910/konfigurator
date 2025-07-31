@@ -49,10 +49,18 @@ if (fenstertyp === "Festverglasung") {
 } else if (fenstertyp === "Links" || fenstertyp === "Rechts") {
   pret += suprafataTotala * 20;
 }
-if (fenstertyp4 === "Festverglasung") {
-  pret -= suprafataTotala * 10;
-} else if (fenstertyp4 === "drehkipp Links und Fest" || fenstertyp4 === "drehkipp Rechts und Fest") {
-  pret += suprafataTotala * 30;
+// 4.1. Deschidere pentru 2 Flügel (fenstertyp4)
+if (fenstertyp4) {
+  console.log("VALOARE fenstertyp4:", fenstertyp4);
+
+  if (fenstertyp4 === "Festverglasung") {
+    pret -= suprafataTotala * 10;
+  } else if (
+    fenstertyp4 === "drehkipp Links und Fest" ||
+    fenstertyp4 === "drehkipp Rechts und Fest"
+  ) {
+    pret += suprafataTotala * 30;
+  }
 }
 
 // 5. Supliment dacă este "1 Flügel mit Oberlicht"
