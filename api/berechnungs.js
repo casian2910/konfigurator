@@ -49,6 +49,11 @@ if (fenstertyp === "Festverglasung") {
 } else if (fenstertyp === "Links" || fenstertyp === "Rechts") {
   pret += suprafataTotala * 20;
 }
+if (fenstertyp2 === "Festverglasung") {
+  pret -= suprafataTotala * 10;
+} else if (fenstertyp2 === "drehkipp Links und Fest" || fenstertyp2 === "drehkipp Rechts und Fest") {
+  pret += suprafataTotala * 30;
+}
 
 // 5. Supliment dacă este "1 Flügel mit Oberlicht"
 if (fensterart && fensterart.includes("mit Oberlicht")) {
