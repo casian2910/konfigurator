@@ -13,6 +13,7 @@ export default function handler(req, res) {
     hoeheOberlicht = 0,
     verglasung,
     glastyp,
+    fensterart,
     fenstertyp,
     fenstertyp2,
     fenstertyp3,
