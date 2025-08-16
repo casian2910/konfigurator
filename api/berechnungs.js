@@ -40,7 +40,7 @@ export default function handler(req, res) {
   const suprafataTotala = suprafataPrincipala + suprafataOberlicht;
 
   // 3. Preț pe m² bază
-  const tarifBazaPeMp = 125.6;
+  const tarifBazaPeMp = 165.6;
   pret += suprafataTotala * tarifBazaPeMp;
 
   // 1 Flügel 
@@ -115,3 +115,4 @@ if (!eAlbAussen && !eAlbInnen) {
 
   return res.status(200).json({ pret });
 }
+
