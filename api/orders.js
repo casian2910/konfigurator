@@ -1,11 +1,20 @@
 export default async function handler(req, res) {
+  // Adaugă CORS headers
+  res.setHeader("Access-Control-Allow-Origin", "*"); // or specific: "https://fenster-rth.de"
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  // Handle preflight OPTIONS request
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
   try {
-    const data = req.body; // datele trimise de site
-    // Verificăm că avem câmpurile necesare
+    const data = req.body;
     if (!data.name || !data.amount || !data.payment_method) {
       return res.status(400).json({ error: "Lipsesc date obligatorii" });
     }
@@ -13,7 +22,6 @@ export default async function handler(req, res) {
     // URL-ul Web App Google Apps Script
     const sheetUrl = "https://script.google.com/macros/s/AKfycbxZQ7BRn_JkE8PX6MHaFWLMyTpbr05T1vvmyeaypUeruyznjUufR9pQArVTducD5GE_ew/exec";
 
-    // Trimitem datele la Google Sheets
     const response = await fetch(sheetUrl, {
       method: "POST",
       body: JSON.stringify(data),
@@ -21,7 +29,6 @@ export default async function handler(req, res) {
     });
 
     const result = await response.json();
-
     if (!result.success) {
       return res.status(500).json({ error: "Eroare la salvarea comenzii in Sheet" });
     }
