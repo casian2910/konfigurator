@@ -1,4 +1,4 @@
-import { sendMail } from "./email.js"; // funcția din email.js
+
 
 export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -11,13 +11,9 @@ export default async function handler(req, res) {
 
   try {
     const data = req.body;
-
-    // verificare câmpuri minime
-    if (!data.name || !data.amount || !data.payment_method || !data.email) {
+    if (!data.name || !data.amount || !data.payment_method)
       return res.status(400).json({ error: "Missing fields" });
-    }
 
-    // 1. salvează comanda în Google Sheets
     const sheetUrl = "https://script.google.com/macros/s/AKfycbyxHllMiWfRGWaOavuap9EoUQ4qnU8aP0jlvcklcl_rJChqthIPuLvb_oXTOYC4UI0MEA/exec";
 
     const response = await fetch(sheetUrl, {
@@ -27,24 +23,9 @@ export default async function handler(req, res) {
     });
 
     const result = await response.json();
-    if (!result.success) {
-      return res.status(500).json({ error: "Error saving order" });
-    }
+    if (!result.success) return res.status(500).json({ error: "Error saving order" });
 
-    // 2. trimite email clientului (după ce s-a salvat în Sheets)
-    await sendMail(
-      data.email,          // emailul clientului
-      data.fenstertyp,     // tipul de fereastră din configurator
-      data.fluegel,        // flügel
-      data.unterlicht,     // unterlicht
-      data.amount          // suma totală
-    );
-
-    // 3. răspuns final către frontend
-    res.status(200).json({
-      success: true,
-      order_number: result.order_number
-    });
+    res.status(200).json({ success: true, order_number: result.order_number });
 
   } catch (err) {
     console.error(err);
