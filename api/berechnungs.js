@@ -83,6 +83,8 @@ if (fenstertyp5 === "Festverglasung") {
   pret += suprafataTotala * 105; // exemplu +30 EUR/m²
 } else if (fenstertyp5 === "Drehkipp Links und drehkipp Rechst mit Stulp") {
   pret += suprafataTotala * 98; // exemplu +30 EUR/m²
+} else if (fenstertyp5 === "Drehkipp Rechts und dreh Links mit Stulp") {
+  pret += suprafataTotala * 98; // exemplu +30 EUR/m²
 }
   
   // 5. Verglasung (3-Fach = extra pe m²)
@@ -114,6 +116,7 @@ if (!eAlbAussen && !eAlbInnen) {
 
   return res.status(200).json({ pret });
 }
+
 
 
 
