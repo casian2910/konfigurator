@@ -31,7 +31,7 @@ export async function sendMail(to, fenstertyp, fluegel, unterlicht, amount) {
       <p>
         ${data.name}<br>
         ${data.strasse}<br>
-        ${data.plz-ort} ${data.ort}<br>
+        ${data.plz-ort}<br>
         </p>
 
 
