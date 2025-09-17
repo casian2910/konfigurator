@@ -1,4 +1,4 @@
-
+import { sendMail } from "./email.js"; // import funcția de email
 
 export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -24,6 +24,14 @@ export default async function handler(req, res) {
 
     const result = await response.json();
     if (!result.success) return res.status(500).json({ error: "Error saving order" });
+
+     await sendMail(
+      data.email,       // emailul clientului
+      data.fenstertyp,  // fenstertyp din configurator
+      data.fluegel,     // fluegel
+      data.unterlicht,  // unterlicht
+      data.amount       // suma totală
+    );
 
     res.status(200).json({ success: true, order_number: result.order_number });
 
