@@ -28,14 +28,18 @@ export default async function handler(req, res) {
 console.log("Date primite:", data);
 console.log("Trimitem email către:", data.email);
     
-     await sendMail(
-      data.email,       // emailul clientului
-      data.fenstertyp,  // fenstertyp din configurator
-      data.fluegel,     // fluegel
-      data.unterlicht,  // unterlicht
-      data.amount       // suma totală
-    );
-
+   try {
+  await sendMail(
+    data.email,
+    data.fenstertyp,
+    data.fluegel,
+    data.unterlicht,
+    data.amount
+  );
+  console.log("Email trimis cu succes!");
+} catch (err) {
+  console.error("Eroare la trimiterea emailului:", err);
+}
     res.status(200).json({ success: true, order_number: result.order_number });
 
   } catch (err) {
