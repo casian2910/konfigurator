@@ -31,8 +31,16 @@ console.log("Trimitem email către:", data.email);
   await sendMail(
     data.email,
     data.fenstertyp,
-    data.fluegel,
-    data.unterlicht,
+    data.hersteller,
+    data.fensterart,
+    data.innenfarbe,
+    data.aussenfarbe,
+    data.glastyp,
+    data.verglasung,
+    data.breite,
+    data.hoehe,
+    data.hoeheOberlicht,
+    data.fensterbankanschluss,
     data.amount,
     result.order_number
   );
