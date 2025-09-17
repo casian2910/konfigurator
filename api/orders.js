@@ -25,6 +25,9 @@ export default async function handler(req, res) {
     const result = await response.json();
     if (!result.success) return res.status(500).json({ error: "Error saving order" });
 
+console.log("Date primite:", data);
+console.log("Trimitem email către:", data.email);
+    
      await sendMail(
       data.email,       // emailul clientului
       data.fenstertyp,  // fenstertyp din configurator
