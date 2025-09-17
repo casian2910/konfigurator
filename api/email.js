@@ -10,7 +10,7 @@ export async function sendMail(to, fenstertyp, fluegel, unterlicht, amount) {
       pass: process.env.EMAIL_PASS
     }
   });
-
+ 
   const mailOptions = {
     from: `"Fenster-RTH" <${process.env.EMAIL_USER}>`,
     to: to,
