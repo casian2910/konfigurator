@@ -33,7 +33,8 @@ console.log("Trimitem email către:", data.email);
     data.fenstertyp,
     data.fluegel,
     data.unterlicht,
-    data.amount
+    data.amount,
+    result.order_number
   );
   console.log("Email trimis cu succes!");
 } catch (err) {
