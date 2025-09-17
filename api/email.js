@@ -27,3 +27,4 @@ export async function sendMail(to, fenstertyp, fluegel, unterlicht, amount) {
 
   await transporter.sendMail(mailOptions);
 }
+
