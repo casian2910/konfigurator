@@ -30,6 +30,9 @@ console.log("Trimitem email către:", data.email);
    try {
   await sendMail(
     data.email,
+    data.nume,
+    data.strasse,
+    data.plzOrt,
     data.fenstertyp,
     data.hersteller,
     data.fensterart,
@@ -43,6 +46,7 @@ console.log("Trimitem email către:", data.email);
     data.fensterbankanschluss,
     data.amount,
     result.order_number
+    
   );
   console.log("Email trimis cu succes!");
 } catch (err) {
