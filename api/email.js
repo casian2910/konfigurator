@@ -29,9 +29,9 @@ export async function sendMail(to, fenstertyp, fluegel, unterlicht, amount, orde
 
       <h3>Rechnungsadresse</h3>
       <p>
-        ${data.name}<br>
-        ${data.strasse}<br>
-        ${data.plzOrt}<br>
+        ${nume}<br>
+        ${strasse}<br>
+        ${plzOrt}<br>
         </p>
 
 
