@@ -10,10 +10,10 @@ export default async function handler(req, res) {
 
   try {
     const data = req.body;
-    if (!data.name || !data.amount || !data.payment_method)
+    if (!data.name || !data.strasse || !data.plz-ort || !data.amount || !data.payment_method)
       return res.status(400).json({ error: "Missing fields" });
 
-    const sheetUrl = "https://script.google.com/macros/s/AKfycbyxHllMiWfRGWaOavuap9EoUQ4qnU8aP0jlvcklcl_rJChqthIPuLvb_oXTOYC4UI0MEA/exec";
+    const sheetUrl = "https://script.google.com/macros/s/AKfycbzOF9JvVmvlT4X5RqD99BXiBZx9o-O3pSyljGEQ-Ddbu9BafB48w0MrqbpnjL9MiT8HKA/exec";
 
     const response = await fetch(sheetUrl, {
       method: "POST",
