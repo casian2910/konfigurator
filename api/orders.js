@@ -33,19 +33,9 @@ console.log("Trimitem email către:", data.email);
     data.nume,
     data.strasse,
     data.plzOrt,
-    data.fenstertyp,
-    data.hersteller,
-    data.fensterart,
-    data.innenfarbe,
-    data.aussenfarbe,
-    data.glastyp,
-    data.verglasung,
-    data.breite,
-    data.hoehe,
-    data.hoeheOberlicht,
-    data.fensterbankanschluss,
     data.amount,
-    result.order_number
+    result.order_number,
+    data.summaryHTML
     
   );
   console.log("Email trimis cu succes!");
