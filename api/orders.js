@@ -30,7 +30,7 @@ console.log("Trimitem email către:", data.email);
    try {
   await sendMail(
     data.email,
-    data.nume,
+    data.name,
     data.strasse,
     data.plzOrt,
     result.order_number,
