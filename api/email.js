@@ -35,7 +35,7 @@ export async function sendMail(to, name, strasse, plzOrt, order_number, amount, 
         ${plzOrt}<br>
       </p>
 
-      
+      ${summaryHTML}
 
       <p><b>Gesamtpreis:</b> ${amount} €</p>
 
