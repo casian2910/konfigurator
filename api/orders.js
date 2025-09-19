@@ -33,8 +33,8 @@ console.log("Trimitem email către:", data.email);
     data.nume,
     data.strasse,
     data.plzOrt,
-    data.amount,
     result.order_number,
+    data.amount,
     data.summaryHTML
     
   );
