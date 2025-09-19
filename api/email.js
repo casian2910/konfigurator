@@ -44,6 +44,45 @@ export async function sendMail(to, name, strasse, plzOrt, order_number, amount, 
   Bei Fragen zu Ihrer Bestellung, Rechnung oder unseren Produkten nutzen Sie bitte unser 
   <a href="https://fenster-rth.de/pages/kontakt" target="_blank">Kontaktformular</a>.
 </p>
+
+<!-- Footer pentru încredere -->
+<div style="font-family: Arial, sans-serif; font-size:8pt; color:#333; margin-top:20px; text-align:center;">
+  <p>Dies ist eine automatisch erstellte E-Mail. Bitte antworten Sie nicht an diese E-Mail-Adresse. 
+     Bei Fragen zu Ihrer Bestellung, Rechnung oder unseren Produkten nutzen Sie bitte unser 
+     <a href="https://fenster-rth.de/pages/kontakt" target="_blank">Kontaktformular</a>.
+  </p>
+
+  <div style="margin-top:10px;">
+    <img src="cid:trustedshops" alt="Trusted Shops" style="height:30px; margin-right:5px;">
+    <img src="cid:ekomi" alt="eKomi Siegel" style="height:30px; margin-right:5px;">
+    <img src="cid:ebay" alt="eBay Top Seller" style="height:30px; margin-right:5px;">
+    <img src="cid:shopcart" alt="Online Shop" style="height:30px;">
+  </div>
+
+  <table style="width:100%; font-size:8pt; color:#333; margin-top:10px; text-align:left;">
+    <tr>
+      <td>
+        <b>Fenster RTH ist eine Marke der</b><br>
+        Rothermic Fenster <br>
+        Birkenhof 6a<br>
+        D - 91456 Diespeck
+      </td>
+      <td>
+        <b>Persönlich haftende Gesellschafterin:</b><br>
+        Fenster RTH<br>
+        Birkehof 6a<br>
+        D - 91456 Diespeck
+      </td>
+      <td>
+        <b>Bankverbindung:</b><br>
+        Maris Rothermic Fenster<br>
+        BIC/SWIFT-Code: PBNKDEFFXXXS<br>
+        IBAN: DE64 7601 0085 0168 4768 50<br>
+        Kreditinstitut: Postbank
+      </td>
+    </tr>
+  </table>
+</div>
       <p>Vielen Dank für Ihre Bestellung!<br>
       Ihr Fenster RTH Team</p>
     </div>
