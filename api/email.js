@@ -28,7 +28,6 @@ export async function sendMail(to, name, strasse, plzOrt, fenstertyp, amount, or
          Wir bestätigen hiermit nachfolgenden Auftrag. Es gelten unsere AGB.</p>
 
       <p><strong>Bestellnummer:</strong> ${order_number}</p>
-
       <h3>Rechnungsadresse</h3>
       <p>
         ${name}<br>
