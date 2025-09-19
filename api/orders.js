@@ -13,7 +13,7 @@ export default async function handler(req, res) {
     if (!data.name || !data.strasse || !data.plzOrt || !data.amount || !data.payment_method)
       return res.status(400).json({ error: "Missing fields" });
 
-    const sheetUrl = "https://script.google.com/macros/s/AKfycbxNSPeruC_8wU3ddnaQNkdqvO9YOP5Dg5-1EROz_SZrsKHulP6M9rnewkb5XYqmsTmDZQ/exec";
+    const sheetUrl = "https://script.google.com/macros/s/AKfycbxtrmJbeGlLfRkBE9-wKoP1TLO0llyIfzaYbhb5W7eKTi-0xjS437qFDzusvWLuwC8CdA/exec";
 
     const response = await fetch(sheetUrl, {
       method: "POST",
