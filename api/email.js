@@ -39,13 +39,7 @@ export async function sendMail(to, name, strasse, plzOrt, order_number, amount, 
 
       <p><b>Bestellwert (Brutto) inkl. 19% MwSt. Gesamtpreis: </b> ${amount} €</p>
 
-<p style="text-align:center; font-size:8pt; color:#333;">
-  Dies ist eine automatisch erstellte E-Mail. Bitte antworten Sie nicht an diese E-Mail-Adresse. 
-  Bei Fragen zu Ihrer Bestellung, Rechnung oder unseren Produkten nutzen Sie bitte unser 
-  <a href="https://fenster-rth.de/pages/kontakt" target="_blank">Kontaktformular</a>.
-</p>
 
-<!-- Footer pentru încredere -->
 <div style="font-family: Arial, sans-serif; font-size:8pt; color:#333; margin-top:20px; text-align:center;">
   <p>Dies ist eine automatisch erstellte E-Mail. Bitte antworten Sie nicht an diese E-Mail-Adresse. 
      Bei Fragen zu Ihrer Bestellung, Rechnung oder unseren Produkten nutzen Sie bitte unser 
@@ -53,7 +47,7 @@ export async function sendMail(to, name, strasse, plzOrt, order_number, amount, 
   </p>
 
   <div style="margin-top:10px;">
-    <img src="cid:trustedshops" alt="Trusted Shops" style="height:30px; margin-right:5px;">
+    <img src="https://www.trustedshops.de/wp-content/uploads/2022/02/@2xtrustmark-header-1.png" alt="Trusted Shops" style="height:30px; margin-right:5px;">
     <img src="cid:ekomi" alt="eKomi Siegel" style="height:30px; margin-right:5px;">
     <img src="cid:ebay" alt="eBay Top Seller" style="height:30px; margin-right:5px;">
     <img src="cid:shopcart" alt="Online Shop" style="height:30px;">
