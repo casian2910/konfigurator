@@ -47,10 +47,10 @@ export async function sendMail(to, name, strasse, plzOrt, order_number, amount, 
   </p>
 
   <div style="margin-top:10px;">
-    <img src="https://cdn.shopify.com/s/files/1/0946/0301/8572/files/2xtrustmark-header-1.png?v=1758285739" style="height:30px; margin-right:5px;">
-    <img src="https://cdn.shopify.com/s/files/1/0946/0301/8572/files/veristore-siegel.png?v=1758285738" alt="Veristore siegel" style="height:30px; margin-right:5px;">
-    <img src="https://cdn.shopify.com/s/files/1/0946/0301/8572/files/Komponente-6-_-1_2x_bb5ceaaf-e6d9-412c-8663-c0476eda0f67.webp?v=1758285739" alt="Top Seller" style="height:30px; margin-right:5px;">
-    <img src="https://cdn.shopify.com/s/files/1/0946/0301/8572/files/ontrust-logo-shopsiegel.jpg?v=1758285851" alt="Online Shop" style="height:30px;">
+    <img src="https://cdn.shopify.com/s/files/1/0946/0301/8572/files/2xtrustmark-header-1.png?v=1758285739" style="height:40px; margin-right:5px;">
+    <img src="https://cdn.shopify.com/s/files/1/0946/0301/8572/files/veristore-siegel.png?v=1758285738" alt="Veristore siegel" style="height:40px; margin-right:5px;">
+    <img src="https://cdn.shopify.com/s/files/1/0946/0301/8572/files/Komponente-6-_-1_2x_bb5ceaaf-e6d9-412c-8663-c0476eda0f67.webp?v=1758285739" alt="Top Seller" style="height:40px; margin-right:5px;">
+    <img src="https://cdn.shopify.com/s/files/1/0946/0301/8572/files/ontrust-logo-shopsiegel.jpg?v=1758285851" alt="Online Shop" style="height:40px;">
   </div>
 
   <table style="width:100%; font-size:8pt; color:#333; margin-top:10px; text-align:left;">
