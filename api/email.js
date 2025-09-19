@@ -37,8 +37,13 @@ export async function sendMail(to, name, strasse, plzOrt, order_number, amount, 
 
       ${summaryHTML}
 
-      <p><b>Gesamtpreis:</b> ${amount} €</p>
+      <p><b>Bestellwert (Brutto) inkl. 19% MwSt. Gesamtpreis: </b> ${amount} €</p>
 
+<p style="text-align:center; font-size:8pt; color:#333;">
+  Dies ist eine automatisch erstellte E-Mail. Bitte antworten Sie nicht an diese E-Mail-Adresse. 
+  Bei Fragen zu Ihrer Bestellung, Rechnung oder unseren Produkten nutzen Sie bitte unser 
+  <a href="https://fenster-rth.de/pages/kontakt" target="_blank">Kontaktformular</a>.
+</p>
       <p>Vielen Dank für Ihre Bestellung!<br>
       Ihr Fenster RTH Team</p>
     </div>
