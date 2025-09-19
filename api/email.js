@@ -46,6 +46,9 @@ export async function sendMail(to, name, strasse, plzOrt, order_number, amount, 
      <a href="https://fenster-rth.de/pages/kontakt" target="_blank">Kontaktformular</a>.
   </p>
 
+  <p>Vielen Dank für Ihre Bestellung!<br>
+      Ihr Fenster RTH Team</p>
+
   <div style="margin-top:10px;">
     <img src="https://cdn.shopify.com/s/files/1/0946/0301/8572/files/2xtrustmark-header-1.png?v=1758285739" style="height:40px; margin-right:5px;">
     <img src="https://cdn.shopify.com/s/files/1/0946/0301/8572/files/veristore-siegel.png?v=1758285738" alt="Veristore siegel" style="height:40px; margin-right:5px;">
@@ -77,9 +80,12 @@ export async function sendMail(to, name, strasse, plzOrt, order_number, amount, 
     </tr>
   </table>
 </div>
-      <p>Vielen Dank für Ihre Bestellung!<br>
-      Ihr Fenster RTH Team</p>
-    </div>
+<div style="font-family: Arial, sans-serif; font-size:6pt; color:#333; margin-top:20px; text-align:center;">
+<p>Diese E-Mail enthält vertrauliche und/oder rechtlich geschützte Informationen.
+Wenn Sie nicht der richtige Adressant sind oder diese E-Mail irrtümlich erhalten haben, informieren Sie bitte sofort den Absender und vernichten Sie diese E-Mail. 
+Das unerlaubte Kopieren sowie die unbefugte Weitergabe dieser E-Mail ist nicht gestattet.
+This e-mail may contain confidential and/or privileged information. If you are not the intended recipient (or have received this e-mail in error) please notify the sender immediately and destroy this e-mail. 
+Any unauthorized copying, disclosure or distribution of the material in this e-mail is strictly forbidden.</p></div>
     `
   };
 
