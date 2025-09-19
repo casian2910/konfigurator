@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
 
-export async function sendMail(to, nume, strasse, plzOrt, fenstertyp, amount, order_number, summaryHTML) {
+export async function sendMail(to, name, strasse, plzOrt, fenstertyp, amount, order_number, summaryHTML) {
   const transporter = nodemailer.createTransport({
     host: "smtp.ionos.de",
     port: 465, // poți încerca și 587 dacă nu merge cu 465
@@ -31,7 +31,7 @@ export async function sendMail(to, nume, strasse, plzOrt, fenstertyp, amount, or
 
       <h3>Rechnungsadresse</h3>
       <p>
-        ${nume}<br>
+        ${name}<br>
         ${strasse}<br>
         ${plzOrt}<br>
       </p>
