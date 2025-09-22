@@ -27,7 +27,7 @@ export default function handler(req, res) {
 
   // 1. Preț de bază pentru producător
   const pretHersteller = {
-    "Koemmerling 70 AD": 65,
+    "Koemmerling 70 AD": 70,
     "Koemmerling 76 MD": 78,
     "Kömmerling 88 MD": 88
   };
@@ -39,7 +39,7 @@ export default function handler(req, res) {
   const suprafataTotala = suprafataPrincipala + suprafataOberlicht;
 
   // 3. Preț pe m² bază
-  const tarifBazaPeMp = 185.6;
+  const tarifBazaPeMp = 188.6;
   pret += suprafataTotala * tarifBazaPeMp;
 
   // 1 Flügel 
@@ -116,6 +116,7 @@ if (!eAlbAussen && !eAlbInnen) {
 
   return res.status(200).json({ pret });
 }
+
 
 
 
