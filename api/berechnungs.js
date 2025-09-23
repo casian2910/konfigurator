@@ -45,7 +45,6 @@ const tarifBazaPeMp = {
 };
 
 pret += suprafataTotala * (tarifBazaPeMp[hersteller] || 0);
-
   
   // 1 Flügel 
 if (fenstertyp === "Festverglasung") {
@@ -121,6 +120,7 @@ if (!eAlbAussen && !eAlbInnen) {
 
   return res.status(200).json({ pret });
 }
+
 
 
 
