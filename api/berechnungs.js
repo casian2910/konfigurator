@@ -24,8 +24,6 @@ export default function handler(req, res) {
   } = req.body;
 
   let pret = 0;
-const herstellerEl = document.querySelector('#hersteller .selected');
-const hersteller = (document.querySelector('#hersteller .selected')?.dataset.value || '').trim().toLowerCase();
 
  // 1. Preț de bază pentru producător 
   const pretHersteller = {
@@ -41,12 +39,8 @@ const hersteller = (document.querySelector('#hersteller .selected')?.dataset.val
   const suprafataTotala = suprafataPrincipala + suprafataOberlicht;
 
 // 3. Preț pe m² bază 
-  const tarifBazaPeMp = {
-  "Koemmerling 70 AD": 10.6,
-  "Koemmerling 76 MD": 10.6,
-  "Koemmerling 88 MD": 10.6
-};
-pret += suprafataTotala * (tarifBazaPeMp[hersteller] || 0);
+  const tarifBazaPeMp = 188.6; 
+  pret += suprafataTotala * tarifBazaPeMp;
 
   
   // 1 Flügel 
@@ -123,6 +117,7 @@ if (!eAlbAussen && !eAlbInnen) {
 
   return res.status(200).json({ pret });
 }
+
 
 
 
