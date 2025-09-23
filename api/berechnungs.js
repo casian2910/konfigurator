@@ -40,9 +40,9 @@ export default function handler(req, res) {
 
   // Prețuri de bază pe m² pentru fiecare profil
 const tarifBazaPeMp = {
-  "Koemmerling 70 AD": 188.6,
-  "Koemmerling 76 MD": 188.6,
-  "Koemmerling 88 MD": 188.6
+  "Koemmerling 70 AD": 186,
+  "Koemmerling 76 MD": 18.6,
+  "Koemmerling 88 MD": 18.6
 };
 pret += suprafataTotala * (tarifBazaPeMp[hersteller] || 0);
 
@@ -120,6 +120,7 @@ if (!eAlbAussen && !eAlbInnen) {
 
   return res.status(200).json({ pret });
 }
+
 
 
 
