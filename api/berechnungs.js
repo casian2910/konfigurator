@@ -40,9 +40,9 @@ export default function handler(req, res) {
 
   // Prețuri de bază pe m² pentru fiecare profil
 const tarifBazaPeMp = {
-  "Koemmerling 70 AD": 186,
-  "Koemmerling 76 MD": 18.6,
-  "Koemmerling 88 MD": 18.6
+  "Koemmerling 70 AD": 176.50,
+  "Koemmerling 76 MD": 186.60,
+  "Koemmerling 88 MD": 256.6
 };
 pret += suprafataTotala * (tarifBazaPeMp[hersteller] || 0);
 
@@ -51,7 +51,7 @@ pret += suprafataTotala * (tarifBazaPeMp[hersteller] || 0);
 if (fenstertyp === "Festverglasung") {
   
 } else if (fenstertyp === "Links" || fenstertyp === "Rechts") {
-  pret += suprafataTotala * 30;
+  pret += suprafataTotala * 55;
 }
 
   // Oberlicht
@@ -121,6 +121,7 @@ if (!eAlbAussen && !eAlbInnen) {
 
   return res.status(200).json({ pret });
 }
+
 
 
 
