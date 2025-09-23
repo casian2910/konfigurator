@@ -25,12 +25,11 @@ export default function handler(req, res) {
 
   let pret = 0;
 
-  // 1. Preț de bază pentru producător
-  const pretHersteller = {
-    "Koemmerling 70 AD": 30,
-    "Koemmerling 76 MD": 40,
-    "Koemmerling 88 MD": 50
-  };
+ // 1. Preț de bază pentru producător const pretHersteller = {
+  "Koemmerling 70 AD": 70, 
+  "Koemmerling 76 MD": 78, 
+  "Koemmerling 88 MD": 88 
+};
   pret += pretHersteller[hersteller] || 0;
 
   // 2. Calcul suprafață totală
@@ -38,14 +37,9 @@ export default function handler(req, res) {
   const suprafataOberlicht = (breite / 1000) * (hoeheOberlicht / 1000);
   const suprafataTotala = suprafataPrincipala + suprafataOberlicht;
 
-  // Prețuri de bază pe m² pentru fiecare profil
-const tarifBazaPeMp = {
-  "Koemmerling 70 AD": 176.50,
-  "Koemmerling 76 MD": 186.60,
-  "Koemmerling 88 MD": 256.6
-};
-pret += suprafataTotala * (tarifBazaPeMp[hersteller] || 0);
-
+// 3. Preț pe m² bază 
+const tarifBazaPeMp = 188.6; 
+pret += suprafataTotala * tarifBazaPeMp;
   
   // 1 Flügel 
 if (fenstertyp === "Festverglasung") {
@@ -121,6 +115,7 @@ if (!eAlbAussen && !eAlbInnen) {
 
   return res.status(200).json({ pret });
 }
+
 
 
 
