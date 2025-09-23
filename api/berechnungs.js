@@ -39,8 +39,13 @@ export default function handler(req, res) {
   const suprafataTotala = suprafataPrincipala + suprafataOberlicht;
 
 // 3. Preț pe m² bază 
-const tarifBazaPeMp = 188.6; 
-pret += suprafataTotala * tarifBazaPeMp;
+  const tarifBazaPeMp = {
+  "Koemmerling 70 AD": 10.6,
+  "Koemmerling 76 MD": 10.6,
+  "Koemmerling 88 MD": 10.6
+};
+pret += suprafataTotala * (tarifBazaPeMp[hersteller] || 0);
+
   
   // 1 Flügel 
 if (fenstertyp === "Festverglasung") {
@@ -116,6 +121,7 @@ if (!eAlbAussen && !eAlbInnen) {
 
   return res.status(200).json({ pret });
 }
+
 
 
 
