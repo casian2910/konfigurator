@@ -38,8 +38,12 @@ export default function handler(req, res) {
   const suprafataOberlicht = (breite / 1000) * (hoeheOberlicht / 1000);
   const suprafataTotala = suprafataPrincipala + suprafataOberlicht;
 
-  // 3. Preț pe m² bază
-  const tarifBazaPeMp = 188.6;
+  // Prețuri de bază pe m² pentru fiecare profil
+const tarifBazaPeMp = {
+  "Kömmerling 70 AD": 188.6,
+  "Koemmerling 76 MD": 188.6,
+  "Kömmerling 88 MD": 188.6
+};
   pret += suprafataTotala * tarifBazaPeMp;
 
   // 1 Flügel 
@@ -116,6 +120,7 @@ if (!eAlbAussen && !eAlbInnen) {
 
   return res.status(200).json({ pret });
 }
+
 
 
 
