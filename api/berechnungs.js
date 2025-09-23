@@ -31,6 +31,9 @@ export default function handler(req, res) {
   "Koemmerling 76 MD": 78, 
   "Koemmerling 88 MD": 88 
 };
+
+let herstellerEl = document.querySelector('#hersteller .selected');
+let hersteller = herstellerEl ? herstellerEl.dataset.value : '';
   pret += pretHersteller[hersteller] || 0;
 
   // 2. Calcul suprafață totală
@@ -38,9 +41,13 @@ export default function handler(req, res) {
   const suprafataOberlicht = (breite / 1000) * (hoeheOberlicht / 1000);
   const suprafataTotala = suprafataPrincipala + suprafataOberlicht;
 
-// 3. Preț pe m² bază 
-  const tarifBazaPeMp = 188.6; 
-  pret += suprafataTotala * tarifBazaPeMp;
+const tarifBazaPeMp = {
+  "Koemmerling 70 AD": 188.6,
+  "Koemmerling 76 MD": 200,    // exemplu tarif diferit
+  "Koemmerling 88 MD": 220
+};
+
+pret += suprafataTotala * (tarifBazaPeMp[hersteller] || 0);
 
   
   // 1 Flügel 
@@ -117,6 +124,7 @@ if (!eAlbAussen && !eAlbInnen) {
 
   return res.status(200).json({ pret });
 }
+
 
 
 
