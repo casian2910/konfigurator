@@ -24,6 +24,7 @@ export default function handler(req, res) {
   } = req.body;
 
   let pret = 0;
+const herstellerEl = document.querySelector('#hersteller .selected');
 const hersteller = (document.querySelector('#hersteller .selected')?.dataset.value || '').trim().toLowerCase();
 
  // 1. Preț de bază pentru producător 
@@ -122,6 +123,7 @@ if (!eAlbAussen && !eAlbInnen) {
 
   return res.status(200).json({ pret });
 }
+
 
 
 
