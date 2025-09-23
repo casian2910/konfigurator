@@ -44,7 +44,7 @@ const tarifBazaPeMp = {
   "Koemmerling 76 MD": 188.6,
   "Koemmerling 88 MD": 188.6
 };
-  pret += suprafataTotala * tarifBazaPeMp;
+pret += suprafataTotala * (tarifBazaPeMp[hersteller] || 0);
 
   // 1 Flügel 
 if (fenstertyp === "Festverglasung") {
@@ -120,6 +120,7 @@ if (!eAlbAussen && !eAlbInnen) {
 
   return res.status(200).json({ pret });
 }
+
 
 
 
