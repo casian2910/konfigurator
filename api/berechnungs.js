@@ -31,9 +31,6 @@ export default function handler(req, res) {
   "Koemmerling 76 MD": 78, 
   "Koemmerling 88 MD": 88 
 };
-
-let herstellerEl = document.querySelector('#hersteller .selected');
-let hersteller = herstellerEl ? herstellerEl.dataset.value : '';
   pret += pretHersteller[hersteller] || 0;
 
   // 2. Calcul suprafață totală
@@ -124,6 +121,7 @@ if (!eAlbAussen && !eAlbInnen) {
 
   return res.status(200).json({ pret });
 }
+
 
 
 
