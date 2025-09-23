@@ -25,7 +25,8 @@ export default function handler(req, res) {
 
   let pret = 0;
 
- // 1. Preț de bază pentru producător const pretHersteller = {
+ // 1. Preț de bază pentru producător 
+  const pretHersteller = {
   "Koemmerling 70 AD": 70, 
   "Koemmerling 76 MD": 78, 
   "Koemmerling 88 MD": 88 
@@ -115,6 +116,7 @@ if (!eAlbAussen && !eAlbInnen) {
 
   return res.status(200).json({ pret });
 }
+
 
 
 
