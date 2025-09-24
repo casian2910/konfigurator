@@ -39,9 +39,9 @@ export default function handler(req, res) {
   const suprafataTotala = suprafataPrincipala + suprafataOberlicht;
 
 const tarifBazaPeMp = {
-  "Koemmerling 70 AD": 178,6,
-  "Koemmerling 76 MD": 199,5,    // exemplu tarif diferit
-  "Koemmerling 88 MD": 211,5
+  "Koemmerling 70 AD": 178.6,
+  "Koemmerling 76 MD": 199.5,    // exemplu tarif diferit
+  "Koemmerling 88 MD": 211.5
 };
 pret += suprafataTotala * (tarifBazaPeMp[hersteller] || 0);
   
@@ -119,6 +119,7 @@ if (!eAlbAussen && !eAlbInnen) {
 
   return res.status(200).json({ pret });
 }
+
 
 
 
