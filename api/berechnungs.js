@@ -43,7 +43,6 @@ const tarifBazaPeMp = {
   "Koemmerling 76 MD": 199,5,    // exemplu tarif diferit
   "Koemmerling 88 MD": 211,5
 };
-
 pret += suprafataTotala * (tarifBazaPeMp[hersteller] || 0);
   
   // 1 Flügel 
@@ -120,6 +119,7 @@ if (!eAlbAussen && !eAlbInnen) {
 
   return res.status(200).json({ pret });
 }
+
 
 
 
