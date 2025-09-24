@@ -39,6 +39,12 @@ export async function sendMail(to, name, strasse, plzOrt, order_number, amount, 
 
       <p><b>Bestellwert (Brutto) inkl. 19% MwSt. Gesamtpreis: </b> ${amount} €</p>
 
+      <p> Wenn Sie die Zahlungsmethode „Vorkasse“ gewählt haben, überweisen Sie bitte den oben genannten Zahlungsbetrag innerhalb von 48 Stunden auf folgendes Konto:
+          Empfänger: Maris Rothermic Fenster
+          IBAN: DE64 7601 0085 0168 4768 50 
+          BIC: PBNKDEFFXXX 
+          </p>
+
 
 <div style="font-family: Arial, sans-serif; font-size:8pt; color:#333; margin-top:20px; text-align:center;">
   <p>Dies ist eine automatisch erstellte E-Mail. Bitte antworten Sie nicht an diese E-Mail-Adresse. 
