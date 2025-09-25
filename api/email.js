@@ -30,7 +30,7 @@ export async function sendMail(to, name, strasse, plzOrt, order_number, amount, 
       <p><strong>Bestellnummer:</strong> ${order_number}</p>
       <h3>Rechnungsadresse</h3>
       <p>
-        ${name}<br>
+      Herr/Frau ${name}<br>
         ${strasse}<br>
         ${plzOrt}<br>
       </p>
