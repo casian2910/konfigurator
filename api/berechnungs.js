@@ -70,13 +70,13 @@ if (fenstertyp3 === "Festverglasung") {
   
 // 2 Flügel
 if (fenstertyp4 === "Festverglasung") {
-  pret += suprafataTotala * 5;  // exemplu +5 EUR/m²
+  pret += suprafataTotala * 3;  // exemplu +5 EUR/m²
 } else if (fenstertyp4 === "drehkipp Links und Fest" || fenstertyp4 === "drehkipp Rechts und Fest") {
-  pret += suprafataTotala * 8; // exemplu +30 EUR/m²
+  pret += suprafataTotala * 10; // exemplu +30 EUR/m²
 } else if (fenstertyp4 === "Drehkipp Links und drehkipp Rechst mit Pfosten") {
-  pret += suprafataTotala * 10; // exemplu +30 EUR/m²
+  pret += suprafataTotala * 15; // exemplu +30 EUR/m²
 } else if (fenstertyp4 === "Drehkipp Links und dreh Rechst mit Stulp(Ohne Pfosten)" || fenstertyp4 === "Drehkipp Rechts und dreh Links mit Stulp(Ohne Pfosten)") {
-  pret += suprafataTotala * 10; // exemplu +30 EUR/m²
+  pret += suprafataTotala * 15; // exemplu +30 EUR/m²
 }
 
   // 2 Flügel mit Unterlicht
@@ -85,7 +85,7 @@ if (fenstertyp5 === "Festverglasung") {
 } else if (fenstertyp5 === "drehkipp Links und Fest Unterlicht" || fenstertyp5 === "drehkipp Rechts und Fest Unterlicht") {
   pret += suprafataTotala * 3; // exemplu +30 EUR/m²
 } else if (fenstertyp5 === "Drehkipp Links und drehkipp Rechst mit Pfosten") {
-  pret += suprafataTotala * 5; // exemplu +30 EUR/m²
+  pret += suprafataTotala * 53; // exemplu +30 EUR/m²
 } else if (fenstertyp5 === "Drehkipp Links und drehkipp Rechst mit Stulp") {
   pret += suprafataTotala * 5; // exemplu +30 EUR/m²
 } else if (fenstertyp5 === "Drehkipp Rechts und dreh Links mit Stulp") {
@@ -121,6 +121,7 @@ if (!eAlbAussen && !eAlbInnen) {
 
   return res.status(200).json({ pret });
 }
+
 
 
 
