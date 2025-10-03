@@ -27,9 +27,9 @@ export default function handler(req, res) {
 
  // 1. Preț de bază pentru producător 
   const pretHersteller = {
-  "Koemmerling 70 AD": 55, 
-  "Koemmerling 76 MD": 65, 
-  "Koemmerling 88 MD": 75 
+  "Koemmerling 70 AD": 15, 
+  "Koemmerling 76 MD": 25, 
+  "Koemmerling 88 MD": 35 
 };
   pret += pretHersteller[hersteller] || 0;
 
@@ -121,6 +121,7 @@ if (!eAlbAussen && !eAlbInnen) {
 
   return res.status(200).json({ pret });
 }
+
 
 
 
