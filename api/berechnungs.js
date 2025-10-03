@@ -54,7 +54,7 @@ if (fenstertyp === "Festverglasung") {
 
   // Oberlicht
 if (fenstertyp2 === "Festverglasung") {
-  pret += 35 + suprafataTotala * 10;  // exemplu +5 EUR/m²
+  pret += + suprafataTotala * 10;  // exemplu +5 EUR/m²
 } else if (fenstertyp2 === "Links" || fenstertyp2 === "Rechts") {
   pret += suprafataTotala * 35; // exemplu +30 EUR/m²
 } else if (fenstertyp2 === "Links - Kipp" || fenstertyp2 === "Rechts - Kipp") {
@@ -121,6 +121,7 @@ if (!eAlbAussen && !eAlbInnen) {
 
   return res.status(200).json({ pret });
 }
+
 
 
 
