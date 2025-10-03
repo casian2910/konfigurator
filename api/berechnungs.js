@@ -49,7 +49,7 @@ pret += suprafataTotala * (tarifBazaPeMp[hersteller] || 0);
 if (fenstertyp === "Festverglasung") {
   pret += suprafataTotala * 24;
 } else if (fenstertyp === "Links" || fenstertyp === "Rechts") {
-  pret += 120 + suprafataTotala * 30;
+  pret += 131 + suprafataTotala * 20;
 }
 
   // Oberlicht
@@ -121,6 +121,7 @@ if (!eAlbAussen && !eAlbInnen) {
 
   return res.status(200).json({ pret });
 }
+
 
 
 
