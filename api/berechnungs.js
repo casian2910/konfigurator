@@ -47,7 +47,7 @@ pret += suprafataTotala * (tarifBazaPeMp[hersteller] || 0);
   
   // 1 Flügel 
 if (fenstertyp === "Festverglasung") {
-  pret += suprafataTotala * 22;
+  pret += suprafataTotala * 24;
 } else if (fenstertyp === "Links" || fenstertyp === "Rechts") {
   pret += suprafataTotala * 55;
 }
@@ -121,6 +121,7 @@ if (!eAlbAussen && !eAlbInnen) {
 
   return res.status(200).json({ pret });
 }
+
 
 
 
