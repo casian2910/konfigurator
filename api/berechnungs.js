@@ -94,7 +94,7 @@ if (fenstertyp5 === "Festverglasung") {
   
   // 5. Verglasung (3-Fach = extra pe m²)
   if (verglasung === "3-Fach-Verglasung") {
-    const tarifTripluGeam = 35;
+    const tarifTripluGeam = 25;
     pret += suprafataTotala * tarifTripluGeam;
   }
 
@@ -112,7 +112,7 @@ if (!eAlbAussen && !eAlbInnen) {
 
   // 6. Tip sticlă (satin pe m²)
   if (glastyp === "satin") {
-    const tarifSatin = 25;
+    const tarifSatin = 20;
     pret += suprafataTotala * tarifSatin;
   }
 
@@ -121,6 +121,7 @@ if (!eAlbAussen && !eAlbInnen) {
 
   return res.status(200).json({ pret });
 }
+
 
 
 
