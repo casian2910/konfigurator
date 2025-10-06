@@ -19,6 +19,7 @@ export default function handler(req, res) {
     fenstertyp3,
     fenstertyp4,
     fenstertyp5,
+    fenstertyp6,
     aussenfarbe,
     innenfarbe
   } = req.body;
@@ -134,6 +135,7 @@ if (!eAlbAussen && !eAlbInnen) {
 
   return res.status(200).json({ pret });
 }
+
 
 
 
