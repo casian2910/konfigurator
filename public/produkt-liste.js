@@ -37,21 +37,20 @@ function adaugaInCos(handle) {
     .then(prod => {
       const cos = JSON.parse(localStorage.getItem("cos_produse") || "[]");
 
+     // construim produsul doar cu ce există
       const produsNou = {
-        profil: prod.vendor || "Standard",
         tip_fereastra: prod.title,
         pret_unitar: prod.price / 100,
         cantitate: 1,
         poza_fereastra: prod.featured_image,
-        fenstertyp: "Standard",
-        culoare_exterior: "Weiß",
-        culoare_interior: "Weiß",
-        tip_geam: "Standard",
-        glastyp: "",
-        dimensiuni: "",
-        dimensiuni2: "",
-        fensterbankanschluss: ""
       };
+
+      // verificăm opțiunile disponibile și le adăugăm
+      if (prod.options.includes("Profil")) produsNou.profil = document.querySelector('select[name="Profil"]')?.value || "Standard";
+      if (prod.options.includes("Fenstertyp")) produsNou.fenstertyp = document.querySelector('select[name="Fenstertyp"]')?.value || "Standard";
+      if (prod.options.includes("Farbe Außen")) produsNou.culoare_exterior = document.querySelector('select[name="Farbe Außen"]')?.value || "Weiß";
+      if (prod.options.includes("Farbe Innen")) produsNou.culoare_interior = document.querySelector('select[name="Farbe Innen"]')?.value || "Weiß";
+
 
       cos.push(produsNou);
       localStorage.setItem("cos_produse", JSON.stringify(cos));
