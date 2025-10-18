@@ -56,11 +56,6 @@ function adaugaInCos(handle) {
       cos.push(produsNou);
       localStorage.setItem("cos_produse", JSON.stringify(cos));
 
-      fetch('/cart/add.js', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ items: [{ quantity: 1, id: prod.variants[0].id }] })
-})
 
       // redirect fix către pagina ta de checkout
       window.location.href = '/pages/bezahlung';
