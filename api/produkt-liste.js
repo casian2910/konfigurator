@@ -1,7 +1,7 @@
 fetch('/products.json')
   .then(res => res.json())
   .then(data => {
-    const container = document.getElementById('produkte-liste');
+    const container = document.getElementById('produkt-liste');
     data.products.forEach(prod => {
       const div = document.createElement('div');
       div.className = 'produkt-item';
