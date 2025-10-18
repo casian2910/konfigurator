@@ -15,7 +15,6 @@ fetch('/products.json')
     });
   });
 
-// === FUNCȚIA CORECTATĂ ===
 function adaugaInCos(handle) {
   fetch(`/products/${handle}.js`)
     .then(res => res.json())
@@ -41,13 +40,14 @@ function adaugaInCos(handle) {
       cos.push(produsNou);
       localStorage.setItem("cos_produse", JSON.stringify(cos));
 
-      // adăugăm și în Shopify (opțional)
+      // adaugă și în Shopify
       fetch(`/cart/add.js`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ items: [{ quantity: 1, id: prod.variants[0].id }] })
       });
 
+      // redirect fix către pagina ta de checkout
       window.location.href = '/pages/bezahlung';
     })
     .catch(err => console.error("Eroare la adăugarea în coș:", err));
